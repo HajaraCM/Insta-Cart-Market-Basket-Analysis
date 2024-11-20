@@ -4,7 +4,7 @@ This project analyzes 3 million anonymized grocery orders provided by Instacart 
 
 
 ## Repository Structure
-.
+```
 ├── Plots/                                      : Contains all visualizations and plots 
 ├── Data Description and Analysis.ipynb         : Initial analysis to understand data
 ├── Exploratory Data Analysis.ipynb             : Detailed EDA for customer purchase patterns
@@ -16,8 +16,8 @@ This project analyzes 3 million anonymized grocery orders provided by Instacart 
 ├── final Model.ipynb                           : Final model combining results and showcasing performance 
 ├── LICENSE                                     : License for the project
 └── README.md                                   : Project overview and instructions
-
-
+```
+<br>
 ---
 
 ## Objectives
