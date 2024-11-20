@@ -102,7 +102,7 @@ The `final_model.ipynb` notebook combines the results and showcases the final mo
 2. Install required libraries:
 
 ```bash
-Copy code
+
 pip install -r requirements.txt
 ```
 
