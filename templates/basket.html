@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Basket Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .navbar {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;  /* Space between navbar items */
+        }
+        .navbar a {
+            padding: 5px 10px;  /* Padding inside the box */
+            border: 1px solid #222323;  /* Border color */
+            border-radius: 5px;  /* Rounded corners */
+            background-color: #f8f9fa;  /* Light background color */
+            text-decoration: none;
+            color: #000;
+            transition: background-color 0.3s;  /* Smooth transition for hover effect */
+         
+        }
+        .navbar a:hover {
+            background-color:rgba(0, 0, 0, 0.5);  /* Background color on hover */
+            color: white;  /* Text color on hover */
+        }
+       
+        h1 { 
+            color: #333;
+            margin-top: 40px
+        }
+        form { 
+            margin-bottom: 20px; 
+        }
+        input { 
+            padding: 10px; 
+            width: 500px;  /* Increased width of input box */
+            margin-bottom: 10px;  /* Space between input and button */
+            border-radius: 5px;
+        }
+        button { 
+            padding: 5px; 
+            width: 160px;  /* Smaller width for the button */
+            display: block; /* Make button block level */
+            margin-top: 5px;  /* Space above button */
+            border-radius: 4px;
+            background-color: black;
+            color: white;
+        }
+        button:hover {
+            background-color: rgba(0, 0, 0, 0.5) ;/* Background color on hover */
+            color:white /* Text color on hover */
+        }
+        .recommendation-grid { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: space-between; 
+        }
+        .recommendation { 
+            margin: 10px; 
+            text-align: center; 
+            width: calc(25% - 20px); 
+        } /* 4 items per row */
+        .recommendation img {
+             width: 200px; 
+             height: auto; 
+        }
+        .recommendation p {
+             margin-top: 5px; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="/">Home</a>
+    </div>
+
+    <h1>Commonly Bought Together Products:</h1>
+    <form  action="/basket" method="post">
+        <input type="text" name="product-name" placeholder="Enter product name" required />
+        <button type="submit">Get Recommendations</button>
+    </form>
+
+    
+    
+    <p>
+        {% if recommendations %}
+           <h2>Recommendations</h2>
+            People buy <strong>{{ product_name }}</strong> also buy:
+        {% endif %}
+    </p>
+
+    {% if recommendations %}
+        
+        <div class="recommendation-grid">
+            {% for product, image in recommendations.items() %}
+                <div class="recommendation">
+                    {% if image %}
+                        <img src="{{ image }}" alt="{{ product }}">
+                    {% else %}
+                        <img src="placeholder.jpg" alt="No image available">  <!-- Placeholder image -->
+                    {% endif %}
+                    <p>{{ product }}</p>  <!-- Product name under image -->
+                </div>
+            {% endfor %}
+        </div>
+  {% endif %}
+
+</body>
+</html>

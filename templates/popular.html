@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .navbar {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;  /* Space between navbar items */
+        }
+        .navbar a {
+            padding: 5px 10px;  /* Padding inside the box */
+            border: 1px solid #222323;  /* Border color */
+            border-radius: 5px;  /* Rounded corners */
+            background-color: #f8f9fa;  /* Light background color */
+            text-decoration: none;
+            color: #000;
+            transition: background-color 0.3s;  /* Smooth transition for hover effect */
+            
+        }
+        .navbar a:hover {
+            background-color:rgba(0, 0, 0, 0.5);  /* Background color on hover */
+            color: white;  /* Text color on hover */
+        }
+        h1 { 
+            color: #333;
+            margin-top: 40px
+        }
+       
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+        .product {
+            display: flex;
+            flex-direction: column; /* Stack image and name */
+            align-items: center; /* Center-align items horizontally */
+            margin: 10px;
+            text-align: center;
+            width: calc(25% - 20px); /* 4 products per row */
+            box-sizing: border-box; 
+        }
+        .product img {
+            width: 200px; /* Adjust image width */
+            height: auto; /* Maintain aspect ratio */
+            
+        }
+        .product span {
+            margin-top: 5px; /* Add some space between image and text */
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        
+    </div>
+
+    <h1>Popular Products</h1>
+    <div class="product-container">
+        {% for product in popular_products %}
+            <div class="product">
+                {% if product in product_images %}
+                    <img src="{{ product_images[product] }}" alt="{{ product }}">
+                {% else %}
+                    <span>No image available</span>
+                {% endif %}
+                <span>{{ product }}</span>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
