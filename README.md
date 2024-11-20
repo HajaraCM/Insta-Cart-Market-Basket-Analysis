@@ -96,7 +96,7 @@ The `final_model.ipynb` notebook combines the results and showcases the final mo
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/instacart-market-basket-analysis.git
+   git clone https://github.com/HajaraCM/insta-cart-market-basket-analysis.git
    cd instacart-market-basket-analysis
    ```
 2. Install required libraries:
