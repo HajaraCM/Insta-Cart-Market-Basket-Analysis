@@ -18,7 +18,6 @@ This project analyzes 3 million anonymized grocery orders provided by Instacart 
 └── README.md                                   : Project overview and instructions
 ```
 <br>
----
 
 ## Objectives
 
@@ -27,7 +26,7 @@ This project analyzes 3 million anonymized grocery orders provided by Instacart 
 3. **Customer Segmentation**: Segment customers for targeted marketing based on product preferences.
 4. **Product Reorder Prediction**: Build machine learning models to predict which previously purchased products will appear in a customer's next order.
 
----
+
 
 ## Data Description
 
@@ -42,7 +41,6 @@ The dataset includes information about:
 - The majority of orders include 1–15 items, with a maximum of 145 items per order.
 - Organic products, despite being fewer, have a higher reorder percentage.
 
----
 
 ## Analysis and Insights
 
@@ -51,7 +49,6 @@ The dataset includes information about:
 - **Reorder Behavior**: Day-to-day items like fruits and vegetables have high reorder rates, unlike first-aid and beauty products.
 - **Shelf Space Optimization**: 85% of purchases come from only 10,000 out of 49,688 products, indicating a potential for shelf space reduction.
 
----
 
 ### **Customer Segmentation**
 Using **Principal Component Analysis (PCA)** and **KMeans Clustering**, customers were divided into 5 segments based on their purchase preferences:
@@ -61,7 +58,6 @@ Using **Principal Component Analysis (PCA)** and **KMeans Clustering**, customer
 4. **Balanced Shoppers**: Purchase both fruits and vegetables.
 5. **New/Infrequent Users**: Order from many aisles but less frequently.
 
----
 
 ### **Market Basket Analysis**
 **Association Rule Mining** with the Apriori Algorithm revealed product pairings with high lift values. For example:
@@ -70,7 +66,6 @@ Using **Principal Component Analysis (PCA)** and **KMeans Clustering**, customer
 
 These insights can inform cross-selling strategies, store layout, and promotional campaigns.
 
----
 
 ### **Machine Learning Models**
 
@@ -80,23 +75,22 @@ These insights can inform cross-selling strategies, store layout, and promotiona
 3. **User-Level Features**: Order frequency, purchase diversity, reorder behavior.
 4. **User-Product Features**: Specific patterns for users reordering products.
 
-#### Models:
-- **XGBoost**: Used for its robustness with large datasets and ability to handle imbalanced classes. Feature importance analysis was also performed.
-- **Artificial Neural Network (ANN)**: Explored for potential performance gains with large-scale data.
+#### XGBoost Model:
+- **XGBoost** was chosen for its efficiency with large datasets and its ability to handle imbalanced classes.
+- **Evaluation Metrics**: ROC-AUC was prioritized over F1 to avoid threshold manipulation.
+- **Feature Importance**: XGBoost also provided insights into the most important features for predicting product reorders.
 
 #### Results:
-- **Evaluation Metrics**: ROC-AUC was prioritized over F1 to avoid threshold manipulation.
-- Both models performed similarly, with **XGBoost slightly outperforming ANN**.
+- The model performed well with an ROC-AUC score indicating its ability to predict reorder behaviors.
+- Confusion matrices, classification reports, and ROC curves are shown to evaluate model performance.
 
----
 
 ### **Final Model**
-The `final_model.ipynb` notebook combines the best insights and results from the XGBoost and ANN models. It showcases:
-- Confusion matrix, classification report, and ROC curves.
-- Feature importance derived from XGBoost.
-- End-to-end flow for predicting product reorders on new test data.
+The `final_model.ipynb` notebook combines the results and showcases the final model’s performance. It includes:
+- End-to-end code to predict product reorders on new test data.
+- Evaluation using Confusion Matrix, ROC-AUC, and Feature Importance analysis from XGBoost.
+- Insights into the most important features driving product reorder predictions.
 
----
 
 ## How to Use the Repository
 
@@ -104,5 +98,25 @@ The `final_model.ipynb` notebook combines the best insights and results from the
    ```bash
    git clone https://github.com/your-username/instacart-market-basket-analysis.git
    cd instacart-market-basket-analysis
+   ```
+2. Install required libraries:
+
+```bash
+Copy code
+pip install -r requirements.txt
+```
+
+3. Follow the notebooks for step-by-step analysis:
+
+- Start with Data Description and Analysis.ipynb to understand the dataset.
+- Explore customer behaviors in Exploratory Data Analysis.ipynb.
+- Run Feature Extraction.ipynb and Data Preparation.ipynb to prepare the dataset for modeling.
+- rain and evaluate the XGBoost model using XGBoost Model.ipynb.
+- Check the complete results in final_model.ipynb.
+
+### Results and Recommendations
+- **Product Associations**: Use Market Basket Analysis findings to optimize product placement and cross-sell campaigns.
+- **Customer Segmentation**: Implement targeted marketing strategies based on customer clusters.
+- **Reorder Prediction**: Integrate the predictive model into Instacart's recommendation system to improve customer experience and increase sales.
 
 
