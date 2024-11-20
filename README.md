@@ -2,6 +2,12 @@
 
 This project analyzes 3 million anonymized grocery orders provided by Instacart to uncover customer purchasing patterns, product associations, and build predictive models for product reorders.The repository provides comprehensive insights into customer behavior, segmentation, and machine learning modeling.
 
+![Screenshot 2024-11-20 153245](https://github.com/user-attachments/assets/145b4bc4-7e72-4a0e-8ec3-3689333ecefb)
+![Screenshot 2024-11-20 153331](https://github.com/user-attachments/assets/a02b7e20-0003-4117-8e46-10d2feac0798)
+![Screenshot 2024-11-20 153617](https://github.com/user-attachments/assets/a6ee5cbb-3753-4f16-87fb-c3c24de14cf2)
+![Screenshot 2024-11-20 153702](https://github.com/user-attachments/assets/7cba88fb-2534-426e-8026-7880fcb6f808)
+
+
 
 ## Repository Structure
 ```
